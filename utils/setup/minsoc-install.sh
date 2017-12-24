@@ -138,11 +138,11 @@ svn co -q ${MINSOC_SVN_URL} minsoc	#user need to input password, execcmd omits c
 execcmd "cd ${DIR_TO_INSTALL}/download"
 if [ "$ENV" == "Cygwin" ]
 then
-    execcmd "Downloading GNU Toolchain" "wget http://minsoc.com/dep/trunk/or32-elf-cygwin-1.7.tar.bz2";
+    execcmd "Downloading GNU Toolchain" "wget https://github.com/openrisc/newlib/releases/download/v2.4.0/or1k-elf_gcc5.3.0_binutils2.26_newlib2.4.0_gdb7.11.tgz";
 else
     if [ $KERNEL_ARCH == "32" ];
     then
-        execcmd "Downloading GNU Toolchain" "wget http://minsoc.com/dep/trunk/or32-elf-linux-x86.tar.bz2";
+        execcmd "Downloading GNU Toolchain" "wget https://github.com/openrisc/newlib/releases/download/v2.3.0-1/or1k-elf_gcc5.3.0_binutils2.26_newlib2.3.0-1_gdb7.11.tgz";
     elif [ $KERNEL_ARCH == "64" ];
     then
         execcmd "Downloading GNU Toolchain" "wget http://minsoc.com/dep/trunk/or32-elf-linux-x86_64.tar.bz2";

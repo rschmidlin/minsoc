@@ -19,6 +19,7 @@ prj/sim/
 prj/xilinx/
 
 sim/run/minsoc_bench
+sim/results/minsoc_wave.lxt2
 
 sw/utils/
 
