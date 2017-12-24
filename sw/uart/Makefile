@@ -25,9 +25,9 @@ DEBUGFLAGS = -g -O0
 RELEASEFLAGS = -O2 -fomit-frame-pointer
 
 CFLAGS = -Wall
-CC = or32-elf-gcc
-AR = or32-elf-ar
-RANLIB = or32-elf-ranlib
+CC = or1k-elf-gcc
+AR = or1k-elf-ar
+RANLIB = or1k-elf-ranlib
 
 CFLAGS += $(GCC_OPT)
 
@@ -115,8 +115,8 @@ $(BINARY): $(EXECUTABLE)
 	$(OR32_TOOL_PREFIX)-objcopy -O binary $? $@
 
 #except.o and reset.o should be already inside of $(SUPPORT) (libsupport.a) but for some reason the compiler ignores that fact
-#(e.g. or32-elf-objdump -t libsupport.a shows it)
-$(EXECUTABLE): $(OBJS) ../support/except.o ../support/reset.o $(SUPPORT) $(DRIVERS)
+#(e.g. or1k-elf-objdump -t libsupport.a shows it)
+$(EXECUTABLE): $(OBJS) $(SUPPORT) $(DRIVERS)
 	$(CC) $(CFLAGS) $(GCC_LIB_OPTS) -T $(LINKER_SCRIPT) $^ -o $@
 
 clean:

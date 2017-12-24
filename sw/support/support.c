@@ -1,6 +1,6 @@
 /* Support */
 
-#ifndef OR32
+#ifndef __OR1K__
 #include <sys/time.h>
 #endif
 
@@ -12,7 +12,7 @@
 #include <uart.h>
 #endif
 
-#if OR32
+#if __OR1K__
 void int_main();
 
 void ext_except()
@@ -40,7 +40,7 @@ void or32_exit (int i)
 static int uart_init_done = 0;
 
 #define PRINTFBUFFER_SIZE 512
-char PRINTFBUFFER[PRINTFBUFFER_SIZE]; // Declare a global printf buffer
+char PRINTFBUFFER[PRINTFBUFFER_SIZE]; // Declare a global printf("%s\n", ); buffer
 
 void minsoc_printf(const char *fmt, ...)
 {
