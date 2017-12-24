@@ -25,34 +25,43 @@ clean:
 
 
 $(XILINX_DIR)/minsoc_top.xst: $(SRC_DIR)/minsoc_top.prj
+	mkdir -p $(XILINX_DIR)
 	bash $(SCRIPTS_DIR)/xilinxxst.sh $^ $@ minsoc_top.prj minsoc_top topmodule
 
 $(XILINX_DIR)/minsoc_top.prj: $(SRC_DIR)/minsoc_top.prj
+	mkdir -p $(XILINX_DIR)
 	bash $(SCRIPTS_DIR)/xilinxprj.sh $^ $@ topmodule
 
 $(XILINX_DIR)/%.xst: $(SRC_DIR)/%.prj
+	mkdir -p $(XILINX_DIR)
 	bash $(SCRIPTS_DIR)/xilinxxst.sh $^ $@ $*.prj $*
 
 $(XILINX_DIR)/%.prj: $(SRC_DIR)/%.prj
+	mkdir -p $(XILINX_DIR)
 	bash $(SCRIPTS_DIR)/xilinxprj.sh $^ $@
 
 
 $(ALTERA_DIR)/%.vprj: $(SRC_DIR)/%.prj
+	mkdir -p $(ALTERA_DIR)
 	bash $(SCRIPTS_DIR)/altvprj.sh $^ $@
 
 $(ALTERA_DIR)/%.vhdprj: $(SRC_DIR)/%.prj
+	mkdir -p $(ALTERA_DIR)
 	bash $(SCRIPTS_DIR)/altvhdprj.sh $^ $@
 
-
 $(SIMULATION_DIR)/minsoc_verilog.src: $(SIM_VERILOG_FILES)
+	mkdir -p $(SIMULATION_DIR)
 	cat $(SIM_VERILOG_FILES) > $(SIMULATION_DIR)/minsoc_verilog.src
 
 $(SIMULATION_DIR)/minsoc_vhdl.src: $(SIM_VHDL_FILES)
+	mkdir -p $(SIMULATION_DIR)
 	cat $(SIM_VHDL_FILES) > $(SIMULATION_DIR)/minsoc_vhdl.src
 
 $(SIMULATION_DIR)/%.verilog: $(SRC_DIR)/%.prj
+	mkdir -p $(SIMULATION_DIR)
 	bash $(SCRIPTS_DIR)/simverilog.sh $^ $@
 
 $(SIMULATION_DIR)/%.vhdl: $(SRC_DIR)/%.prj
+	mkdir -p $(SIMULATION_DIR)
 	bash $(SCRIPTS_DIR)/simvhdl.sh $^ $@
 
