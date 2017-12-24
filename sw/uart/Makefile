@@ -116,7 +116,7 @@ $(BINARY): $(EXECUTABLE)
 
 #except.o and reset.o should be already inside of $(SUPPORT) (libsupport.a) but for some reason the compiler ignores that fact
 #(e.g. or1k-elf-objdump -t libsupport.a shows it)
-$(EXECUTABLE): $(OBJS) $(SUPPORT) $(DRIVERS)
+$(EXECUTABLE): $(OBJS) ../support/except.o ../support/reset.o $(SUPPORT) $(DRIVERS)
 	$(CC) $(CFLAGS) $(GCC_LIB_OPTS) -T $(LINKER_SCRIPT) $^ -o $@
 
 clean:
