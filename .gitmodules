@@ -1,0 +1,12 @@
+[submodule "rtl/verilog/uart16550"]
+	path = rtl/verilog/uart16550
+	url = https://github.com/freecores/uart16550.git
+[submodule "rtl/verilog/ethmac"]
+	path = rtl/verilog/ethmac
+	url = https://github.com/freecores/ethmac.git
+[submodule "rtl/verilog/adv_debug_sys"]
+	path = rtl/verilog/adv_debug_sys
+	url = https://github.com/freecores/adv_debug_sys.git
+[submodule "rtl/verilog/or1200"]
+	path = rtl/verilog/or1200
+	url = https://github.com/openrisc/or1200.git
